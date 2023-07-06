@@ -9,12 +9,22 @@ for i in range(1, 4):
         print(f"i = {i}, j = {j}", end=" ")
     print()
 
+m, n = list(map(int, input("Введите M и N через пробел(цифры) -> ").split()))
+array = []
+print(m, n)
+for i in range(m):
+    array.append([0] * n)
+print(array)
 
-# m, n = list(map(int, input("Введите M и N через пробел(цифры) -> ").split()))
-# arr = []
-# for i in range(m):
-#     arr.append([0] * n)
-# print(arr)
+count = 0
+for i in range(m):
+    for j in range(n):
+        count += 1
+        array[i][j] = count
 
-n = list(map(int, input("Введите M и N через пробел(цифры) -> ").split()))
-print(n)
+for i in array:
+    print(" - ".join([str(k) for k in i]))
+# для красивого вывода 2-х мерного массива надо пробежаться по нему
+# преобразовав все в строку [str(k) for k in i] и воспользовавшись методом " - ".join вывести на печать
+
+
