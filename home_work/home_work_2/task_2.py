@@ -32,6 +32,6 @@ e = num1 * num2
 f = denom1 * denom2
 print(f"\tПроизведение дробей = {e}/{f}")
 
-f_1 = fractions.Fraction(num1, denom1)
-f_2 = fractions.Fraction(num2, denom2)
-print(f"Проверка: \n\tСумма дробей = {f_1 + f_2} \n\tПроизведение дробей = {f_1 * f_2}")
+droby1 = fractions.Fraction(num1, denom1)
+droby2 = fractions.Fraction(num2, denom2)
+print(f"Проверка: \n\tСумма дробей = {droby1 + droby2} \n\tПроизведение дробей = {droby1 * droby2}")
