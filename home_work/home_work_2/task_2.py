@@ -14,24 +14,24 @@ def common_div(a, b):
 # функция для нахождения НОД
 
 
-num1, denominator1 = list(map(int, input("Введите 2 числа для составления 1-ой дроби(пр: a/b) -> ").split('/')))
-numerator2, denominator2 = list(map(int, input("Введите 2 числа для составления 2-ой дроби(пр: a/b) -> ").split('/')))
+num1, denom1 = list(map(int, input("Введите 2 числа для составления 1-ой дроби(пр: a/b) -> ").split('/')))
+num2, denom2 = list(map(int, input("Введите 2 числа для составления 2-ой дроби(пр: a/b) -> ").split('/')))
 
-if denominator1 == denominator2:
-    print('Сумма дробей = {} / {}'.format(num1 + numerator2, denominator1))
+if denom1 == denom2:
+    print('Сумма дробей = {} / {}'.format(num1 + num2, denom1))
 else:
-    cd = int(denominator1 * denominator2 / common_div(denominator1, denominator2))
-    rn = int(cd / denominator1 * num1 + cd / denominator2 * numerator2)
+    cd = int(denom1 * denom2 / common_div(denom1, denom2))
+    rn = int(cd / denom1 * num1 + cd / denom2 * num2)
     g2 = common_div(rn, cd)
     n = int(rn / g2)
     d = int(cd / g2)
     print('\tСумма дробей = {} / {}'.format(n, d) if n != d else n)
 
 # произведение дробей
-e = num1 * numerator2
-f = denominator1 * denominator2
+e = num1 * num2
+f = denom1 * denom2
 print(f"\tПроизведение дробей = {e}/{f}")
 
-f_1 = fractions.Fraction(num1, denominator1)
-f_2 = fractions.Fraction(numerator2, denominator2)
+f_1 = fractions.Fraction(num1, denom1)
+f_2 = fractions.Fraction(num2, denom2)
 print(f"Проверка: \n\tСумма дробей = {f_1 + f_2} \n\tПроизведение дробей = {f_1 * f_2}")
