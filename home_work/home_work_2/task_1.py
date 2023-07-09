@@ -21,7 +21,7 @@ while num > 0:
     num //= 16
 
 print("ваш ответ в шестнадцатеричной системе -> ", res[::-1])
-print("Проверка -> ", hex_num[2:])
+print("\tПроверка -> ", hex_num[2:])
 
 # продвинутый вариант
 num = int(input("Введите число для перевода в 16-ную систему -> "))
@@ -29,9 +29,11 @@ num = int(input("Введите число для перевода в 16-ную 
 res = ""
 hex_num = hex(num)
 system_16 = '0123456789abcdef'
+system = 16
+
 while num > 0:
-    res += str(system_16[num % 16])
-    num //= 16
+    res += str(system_16[num % system])
+    num //= system
 
 print("ваш ответ в шестнадцатеричной системе -> ", res[::-1])
-print("Проверка -> ", hex_num[2:])
+print("\tПроверка -> ", hex_num[2:])
