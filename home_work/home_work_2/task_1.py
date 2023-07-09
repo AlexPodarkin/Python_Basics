@@ -32,7 +32,7 @@ system_16 = '0123456789abcdef'
 system = 16
 
 while num > 0:
-    res += str(system_16[num % system])
+    res += system_16[num % system]
     num //= system
 
 print("ваш ответ в шестнадцатеричной системе -> ", res[::-1])
