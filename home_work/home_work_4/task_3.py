@@ -22,6 +22,7 @@ def put_money(cash_1_op, count_1_op):
     else:
         print("! ошибка внесения денег: неверная сумма")
         op_history.append("ошибка внесения денег: неверная сумма")
+        count_1_op += 1
         return cash_1_op, count_1_op
 
 
@@ -38,6 +39,7 @@ def give_money(cash_2_op, count_2_op):
         if cash_2_op < (take + percent):
             print("! ошибка снятия денег: недостаточно средств")
             op_history.append("ошибка снятия денег: недостаточно средств")
+            count_2_op += 1
             return cash_2_op, count_2_op
         else:
             cash_2_op -= (take + percent)
@@ -47,6 +49,7 @@ def give_money(cash_2_op, count_2_op):
     else:
         print("! ошибка снятия денег: неверная сумма")
         op_history.append("ошибка снятия денег: неверная сумма")
+        count_2_op += 1
         return cash_2_op, count_2_op
 
 
@@ -61,7 +64,7 @@ def give_percent(cash_3_op, count_3_op):
     """Функция начисления процентов за каждую третью операцию в банкомате"""
     if count_3_op % 3 == 0:
         cash_3_op *= 1.03
-        print(f"-> {count_3_op + 3} операция ! Каждая 3-тья операция, банк начислил проценты, баланс = {cash_3_op}")
+        print(f"-> {count_3_op} операция ! Каждая 3-тья операция, банк начислил проценты, баланс = {cash_3_op}")
     return cash_3_op
 
 
@@ -81,6 +84,7 @@ def cash_machine(total_cash, count, history_operation):
                 total_cash, count = give_money(total_cash, count)
             case "3":
                 print_history(history_operation)
+                count += 1
             case "4":
                 quit()
         total_cash = give_percent(total_cash, count)
@@ -88,7 +92,6 @@ def cash_machine(total_cash, count, history_operation):
 
 # ----------------входные данные и запуск банкомата-----------------------
 cash = 0
-count_init = -3
-# count_init = -3 потому-что 0/3 == 0 (True)
+count_init = 0
 op_history = []
 cash_machine(cash, count_init, op_history)
