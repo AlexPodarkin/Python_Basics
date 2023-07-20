@@ -92,6 +92,6 @@ def cash_machine(total_cash, count, history_operation):
 
 # ----------------входные данные и запуск банкомата-----------------------
 cash = 0
-count_init = 0
+operation_counter = 0
 op_history = []
-cash_machine(cash, count_init, op_history)
+cash_machine(cash, operation_counter, op_history)
