@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def check_data(date_text):
-    """Модуль с проверкой даты"""
+    """Функция проверки даты"""
     *_, year = list(date_text.split("."))
     try:
         print(date_text)
@@ -18,7 +18,7 @@ def check_data(date_text):
 
 
 def check_year(year):
-    """Модуль с проверкой високосного года"""
+    """Функция проверки високосного года"""
     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
         print("Високосный год")
     else:
