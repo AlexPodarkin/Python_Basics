@@ -4,12 +4,12 @@ from datetime import datetime
 # В модуль с проверкой даты добавьте возможность запуска в терминале с передачей даты на проверку.
 
 
-def check_data(date_text):
+def check_data(date_inp):
     """Функция проверки даты"""
-    *_, year = list(date_text.split("."))
+    *_, year = list(date_inp.split("."))
     try:
-        print(date_text)
-        datetime.strptime(date_text, "%d.%m.%Y").date()
+        print(date_inp)
+        datetime.strptime(date_inp, "%d.%m.%Y").date()
         check_year(int(year))
         return True
     except ValueError:
