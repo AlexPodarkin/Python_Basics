@@ -42,3 +42,15 @@ print(next(iter_fib_for),
       next(iter_fib_for),
       next(iter_fib_for),
       next(iter_fib_for))
+
+print("\n\nработа рекурсии \n")
+
+
+def recursive(value):
+    print(value)
+    if value < 3:
+        recursive(value + 1)
+    print(value)
+
+
+recursive(1)
