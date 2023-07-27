@@ -1,0 +1,5 @@
+Lorem ipsum dolor sit amet, consectetur adipisicingelit.
+Consequatur debitis explicabo laboriosam sint suscipittemporibus veniam?
+Lorem ipsum dolor sit amet, consectetur adipisicingelit.
+Consequatur debitis explicabo laboriosam sint suscipit temporibus veniam?
+data.seek(0, 2) переводит курсор в конец файла 'r+' - позволяет открыть файл на чтение и запись 
