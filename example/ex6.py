@@ -34,7 +34,7 @@ fio = "Ivanov Ivan Ivanovich"
 print(fio.split(" "))
 # получили список состоящий из этих строк
 
-digs = "1, 2  ,3, 4   ,5     ,6 ,    7"
+digs = "test, 2  ,3, 4   ,5     ,6 ,    7"
 digs = digs.replace(" ", "").split(",")
 # split создает список из строк
 print(digs)

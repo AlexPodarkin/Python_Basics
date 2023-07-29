@@ -43,14 +43,14 @@ while True:
 
     print("сумма на счете ", total_cash)
 
-    print("1 - пополнить")
+    print("test - пополнить")
     print("2 - снять")
     print("0 - выйти")
 
     action = input("введите номер операции: ")
 
     match action:
-        case "1":
+        case "test":
             add = int(input("внесите сумму кратную 50: "))
             if add % 50 == 0:
                 total_cash += add

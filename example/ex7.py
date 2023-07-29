@@ -6,7 +6,7 @@ print(s)
 path = "D:\Python\text.txt"
 print(path)
 # Экранировать пути обязательно во избежание ошибок !!!
-path = "D:\\Python\\text.txt"
+path = "D:\\Python\\text.txt.txt"
 # только так !
 print(path)
 

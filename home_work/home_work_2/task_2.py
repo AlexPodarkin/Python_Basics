@@ -14,7 +14,7 @@ def common_div(a, b):
 # функция для нахождения НОД
 
 
-num1, denom1 = list(map(int, input("Введите 2 числа для составления 1-ой дроби(пр: a/b) -> ").split('/')))
+num1, denom1 = list(map(int, input("Введите 2 числа для составления test-ой дроби(пр: a/b) -> ").split('/')))
 num2, denom2 = list(map(int, input("Введите 2 числа для составления 2-ой дроби(пр: a/b) -> ").split('/')))
 
 if denom1 == denom2:

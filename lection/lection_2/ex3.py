@@ -2,14 +2,14 @@ import math
 import decimal
 import fractions
 
-# text = input("введите текст: ")
+# text.txt = input("введите текст: ")
 #
-# if text.isdigit():
-#     bin_num = bin(int(text))
-#     oct_num = oct(int(text))
-#     hex_num = hex(int(text))
+# if text.txt.isdigit():
+#     bin_num = bin(int(text.txt))
+#     oct_num = oct(int(text.txt))
+#     hex_num = hex(int(text.txt))
 #     print("двоичная = ", bin_num, "восьмеричная = ", oct_num, "шестнадцатеричная = ", hex_num)
-# elif text.isascii():
+# elif text.txt.isascii():
 #     print("Текст написан согласно таблице ASCII")
 # else:
 #     print("Текст написан НЕ согласно таблице ASCII")

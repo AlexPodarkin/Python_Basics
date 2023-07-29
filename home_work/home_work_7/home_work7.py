@@ -41,7 +41,7 @@ def rename_files(serial_number, initial_extension, finite_extension, original_ra
 rename_files(1, "txt", "txt", [1, 4], end_filename="_script")
 
 # Черновой вариант ниже ! (более подробный, но менее  эффективный:))
-# def rename_files(serial_number, initial_extension, finite_extension, original_range=(1, 0), end_filename=""):
+# def rename_files(serial_number, initial_extension, finite_extension, original_range=(test, 0), end_filename=""):
 #     """
 #     :param serial_number: Кол-во цифр, при переименовании в конце имени добавляется порядковый номер.
 #     :param initial_extension: Принимает параметр расширение исходного файла.
@@ -60,9 +60,9 @@ rename_files(1, "txt", "txt", [1, 4], end_filename="_script")
 #     take_from, take_up = original_range
 #
 #     for file_rename in list_name_files:
-#         new_name = file_rename.split(".")[0][take_from - 1:take_up] + end_filename + "_" \
+#         new_name = file_rename.split(".")[0][take_from - test:take_up] + end_filename + "_" \
 #                    + str(next(serial_number)) + "." + finite_extension
 #         os.rename(file_rename, new_name)
 #
 #
-# rename_files(1, "txt", "txt", [1, 4], end_filename="_script")
+# rename_files(test, "txt", "txt", [test, 4], end_filename="_script")

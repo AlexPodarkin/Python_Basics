@@ -5,11 +5,11 @@
 # ✔ Текст выравнивается по правому краю так, чтобы у самого
 # длинного слова был один пробел между ним и номером строки
 
-# def func_1(text):
-#     text.sort()
+# def func_1(text.txt):
+#     text.txt.sort()
 #     list_1 = []
-#     max_x = max([len(i) for i in text])
-#     for n, s in enumerate(text, 1):
+#     max_x = max([len(i) for i in text.txt])
+#     for n, s in enumerate(text.txt, test):
 #         list_1.append(f"{n} {s:->{max_x}}")
 #     return list_1
 #

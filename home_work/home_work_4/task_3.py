@@ -4,7 +4,7 @@ def print_menu(cash_print):
     """Функция для печати меню банкомата"""
     print("\nВаш баланс = ", round(cash_print, 2))
     print("      МЕНЮ: ")
-    print("1. чтобы пополнить")
+    print("test. чтобы пополнить")
     print("2. чтобы снять")
     print("3. для печати истории операций")
     print("4. чтобы выйти")
@@ -78,7 +78,7 @@ def cash_machine(total_cash, count, history_operation):
 
         action = input("\nваш выбор -> ")
         match action:
-            case "1":
+            case "test":
                 total_cash, count = put_money(total_cash, count)
             case "2":
                 total_cash, count = give_money(total_cash, count)

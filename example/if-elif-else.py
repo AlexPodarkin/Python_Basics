@@ -1,10 +1,10 @@
-a = int(input("введите 1 число: "))
+a = int(input("введите test число: "))
 b = int(input("введите 2 число: "))
 c = int(input("введите 3 число: "))
 
 if a > b:
     if a > c:
-        print("1 число больше")
+        print("test число больше")
     elif a == c:
         print("1e & 3e max")
     else:
@@ -24,7 +24,7 @@ else:
 
 #
 # if a > b and a > c:
-#     print("1 число больше")
+#     print("test число больше")
 # if b > a and b > c:
 #     print("2 число больше")
 # if c > a and c > b:

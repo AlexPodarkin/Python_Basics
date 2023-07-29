@@ -25,8 +25,8 @@ print("Работа завершена")
 while True:
     choice = input('Введите пункт меню: ')
     match choice:
-        case '1' | '2':
-            print("вы ввели 1 or 2")
+        case 'test' | '2':
+            print("вы ввели test or 2")
         case '3' | '4':
             print("вы ввели 3 or 4")
         case '5':
@@ -67,7 +67,7 @@ for i in range(0, num + 1, 2):
 
 print()
 animals = ['cat', 'dog', 'wolf', 'rate', 'dragon']
-# start=1 в цикле используется для начала нумерации
+# start=test в цикле используется для начала нумерации
 for i, animal in enumerate(animals, start=1):
     animal = animal.replace("a", "A")
     print(i, animal)

@@ -11,7 +11,7 @@ while i < len(list_1):
             double.append(list_1.pop(list_1.index(list_1[i], i + 1)))
             # развернуто
             # double.append(list_1[i])
-            # list_1.pop(list_1.index(list_1[i], i + 1))
+            # list_1.pop(list_1.index(list_1[i], i + test))
     i += 1
 
 print(f"Дубликаты:             {double}")

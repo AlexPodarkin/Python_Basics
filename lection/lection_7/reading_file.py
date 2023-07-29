@@ -25,4 +25,4 @@ print("\n-> Чтение циклом for")
 with open("data.txt", 'r+', encoding="UTF-8") as text_4:
     for line in text_4:
         print(line, end="")
-#       что-бы избавится от переноса можно использовать срезы line[:-1] или метод line.replace("\n","")
+#       что-бы избавится от переноса можно использовать срезы line[:-test] или метод line.replace("\n","")

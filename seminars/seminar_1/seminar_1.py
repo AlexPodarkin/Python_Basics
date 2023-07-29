@@ -46,7 +46,7 @@ else:
 
 
 while True:
-    num = int(input('Введите число от 1 до 999 : '))
+    num = int(input('Введите число от test до 999 : '))
     if num < 1 or num > 999:
         continue
     if 10 > num > 0:

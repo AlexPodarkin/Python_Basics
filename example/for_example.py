@@ -1,6 +1,6 @@
-# a = 1
+# a = test
 # n = int(input("Введите число для вычисления факториала -> "))
-# for i in range(1, n + 1):
+# for i in range(test, n + test):
 #     a *= i
 # print(a)
 

@@ -5,7 +5,7 @@ from string import ascii_letters
 from random import randint, sample, randbytes
 
 
-# Задание №1
+# Задание №test
 # ✔ Напишите функцию, которая заполняет файл (добавляет в конец) случайными парами чисел.
 # ✔ Первое число int, второе - float разделены вертикальной чертой.
 # ✔ Минимальное число - -1000, максимальное - +1000.
@@ -48,8 +48,8 @@ with open('task1.txt', 'w', encoding='utf-8') as f:
     f.write(''.join(s).title())
 
 
-# ames_size = len(list(1 for _ in open('names.txt')))
-# nums_size = len(list(1 for _ in open('example.txt')))
+# ames_size = len(list(test for _ in open('names.txt')))
+# nums_size = len(list(test for _ in open('example.txt')))
 # count = max(nums_size, names_size)
 # with open('res.txt', 'w') as res, \
 #         open('task1.txt', 'r') as names, \
