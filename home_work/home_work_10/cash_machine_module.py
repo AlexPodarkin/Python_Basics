@@ -9,6 +9,12 @@ class CashMachine:
     __BONUS_PERCENT = 1.03
 
     def __init__(self, cash=0, counter=0, history=None):
+        """
+        Метод инициализации банкомата
+        :param cash: баланс
+        :param counter: счетчик операций
+        :param history: история операций
+        """
         self.__cash = cash
         self.__counter = counter
         if history is None:

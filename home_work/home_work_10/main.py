@@ -3,7 +3,6 @@ from cash_machine_module import CashMachine
 # разбил класс на методы
 # в работе использовал приватные методы и поля (кроме метода work)
 # для всех неизменяемых значении задал константы,
-# постарался использовать все накопленные знания
 cash_machine = CashMachine()
 cash_machine.work()
 
@@ -13,4 +12,3 @@ cash_machine.work()
 # count = 2
 # cash_machine = CashMachine(cash=200, counter=count, history=history_old)
 # cash_machine.work()
-
