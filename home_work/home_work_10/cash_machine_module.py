@@ -3,8 +3,8 @@ class CashMachine:
     __COMMISSION_BANK = 0.9
     __DIVISION_CHECK = 50
     __MIN_COMMISSION = 30
-    __COMMISSION = 30
-    __MAX_COMMISSION = 30
+    __COMMISSION = 60
+    __MAX_COMMISSION = 600
     __BONUS_OPERATION = 3
     __BONUS_PERCENT = 1.03
 
