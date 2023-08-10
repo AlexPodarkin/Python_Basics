@@ -53,6 +53,7 @@ my_matrix_1 = [[1, 2, 4, 71],
 my_matrix_2 = [[1, 2, 4, 29],
                [3, 4, 6, 1]]
 
+print('Сложение матриц:')
 my_matrix_1 = Matrix(my_matrix_1)
 my_matrix_2 = Matrix(my_matrix_2)
 my_matrix_3 = my_matrix_1 + my_matrix_2
