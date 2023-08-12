@@ -53,22 +53,15 @@ class Student:
 
     def test_score(self, subject: str, estimate: int):
         if not -1 < estimate < 101:
-            raise ValueError('оценки (от 2 до 5)')
+            raise ValueError('результаты тестов (от 0 до 100)')
         self.__study_journal[subject][self.test_res].append(estimate)
 
-    def subject_average(self, subject):
-        if self.__study_journal[subject][self.grade_res]:
-            result = sum(self.__study_journal[subject][self.grade_res]) \
-                     / len(self.__study_journal[subject][self.grade_res])
-            return f'Средняя оценка по предмету "{subject}": {result} балла.'
-        return f'Средняя оценка по предмету "{subject}": оценки отсутствуют.'
-
-    def test_average(self, subject):
-        if self.__study_journal[subject][self.test_res]:
-            result = sum(self.__study_journal[subject][self.test_res]) \
-                     / len(self.__study_journal[subject][self.test_res])
-            return f'Средняя оценка тестирования по предмету "{subject}": {result} балла.'
-        return f'Средняя оценка тестирования по предмету "{subject}": тестирование не проходил.'
+    def subject_average(self, subject, what_result):
+        if self.__study_journal[subject][what_result]:
+            result = sum(self.__study_journal[subject][what_result]) \
+                     / len(self.__study_journal[subject][what_result])
+            return f'Средние {what_result} по предмету "{subject}": {result} балла.'
+        return f'Средние {what_result} по предмету "{subject}": оценки отсутствуют.'
 
     def overall_point_average(self):
         summ = 0
@@ -88,6 +81,8 @@ class Student:
 
 
 if __name__ == '__main__':
+    grade = 'оценки'
+    test = 'результаты тестирования'
     vas = Student('Вася', 'Пупкин', 'Васильевич')
     print(vas)
 
@@ -103,13 +98,13 @@ if __name__ == '__main__':
     vas.test_score('Геометрия', 100)
 
     # результат, оценки (средний балл)
-    print(vas.subject_average('Геометрия'))
-    print(vas.subject_average('Физическая культура'))
-    print(vas.subject_average('Математика'))
-
+    print(vas.subject_average('Геометрия', grade))
+    print(vas.subject_average('Физическая культура', grade))
+    print(vas.subject_average('Математика', grade))
     # результат, тестирование (средний балл)
-    print(vas.test_average('Геометрия'))
-    print(vas.test_average('Физическая культура'))
+    # второй аргумент нужен что-бы не дублировать код с нахождением среднего бала !
+    print(vas.subject_average('Геометрия', test))
+    print(vas.subject_average('Физическая культура', test))
 
     print(f'Средний балл студента (GPA) = {vas.overall_point_average()}')
 
