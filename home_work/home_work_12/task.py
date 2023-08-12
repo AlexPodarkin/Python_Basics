@@ -40,45 +40,51 @@ class Student:
         self.name = name
         self.surname = surname
         self.patronymic = patronymic
-        self.study_journal = dict()
+        self.__study_journal = dict()
         with open('lesson_titles.csv', 'r', encoding='utf-8') as file:
             file_reader = csv.reader(file, delimiter="\n")
             for row in file_reader:
-                self.study_journal[str(*row)] = {self.grade_res: [], self.test_res: []}
+                self.__study_journal[str(*row)] = {self.grade_res: [], self.test_res: []}
 
     def rate_student(self, subject: str, estimate: int):
         if not 1 < estimate < 6:
             raise ValueError('оценки (от 2 до 5)')
-        self.study_journal[subject][self.grade_res].append(estimate)
+        self.__study_journal[subject][self.grade_res].append(estimate)
 
     def test_score(self, subject: str, estimate: int):
         if not -1 < estimate < 101:
             raise ValueError('оценки (от 2 до 5)')
-        self.study_journal[subject][self.test_res].append(estimate)
+        self.__study_journal[subject][self.test_res].append(estimate)
 
     def subject_average(self, subject):
-        if self.study_journal[subject][self.grade_res]:
-            result = sum(self.study_journal[subject][self.grade_res]) / len(self.study_journal[subject][self.grade_res])
+        if self.__study_journal[subject][self.grade_res]:
+            result = sum(self.__study_journal[subject][self.grade_res]) \
+                     / len(self.__study_journal[subject][self.grade_res])
             return f'Средняя оценка по предмету "{subject}": {result} балла.'
         return f'Средняя оценка по предмету "{subject}": оценки отсутствуют.'
 
     def test_average(self, subject):
-        if self.study_journal[subject][self.test_res]:
-            result = sum(self.study_journal[subject][self.test_res]) / len(self.study_journal[subject][self.test_res])
+        if self.__study_journal[subject][self.test_res]:
+            result = sum(self.__study_journal[subject][self.test_res]) \
+                     / len(self.__study_journal[subject][self.test_res])
             return f'Средняя оценка тестирования по предмету "{subject}": {result} балла.'
         return f'Средняя оценка тестирования по предмету "{subject}": тестирование не проходил.'
 
     def overall_point_average(self):
         summ = 0
         count = 0
-        for i in self.study_journal:
-            if self.study_journal[i][self.grade_res]:
-                summ += sum(self.study_journal[i][self.grade_res])
-                count += len(self.study_journal[i][self.grade_res])
+        for i in self.__study_journal:
+            if self.__study_journal[i][self.grade_res]:
+                summ += sum(self.__study_journal[i][self.grade_res])
+                count += len(self.__study_journal[i][self.grade_res])
         return round(summ / count, 2)
 
     def __repr__(self):
         return f'Student(name={self.name}, surname={self.surname}, patronymic={self.patronymic})'
+
+    @property
+    def study_journal(self):
+        return self.__study_journal
 
 
 if __name__ == '__main__':
@@ -105,7 +111,7 @@ if __name__ == '__main__':
     print(vas.test_average('Геометрия'))
     print(vas.test_average('Физическая культура'))
 
-    print(f'Средний балл студента = {vas.overall_point_average()}')
+    print(f'Средний балл студента (GPA) = {vas.overall_point_average()}')
 
     # для красоты)
     with open('оценки.json', 'w', encoding='utf-8') as file_json:
