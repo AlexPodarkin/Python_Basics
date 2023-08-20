@@ -86,12 +86,14 @@ class MadelCashMachine:
         return f'Операция № {self.__counter}, за любую 3-тью операцию банк начислит процент !'
 
     def save_json(self):
+        """Метод сохранения состояния в JSON"""
         with open(self.__path_save, 'w', encoding='utf-8') as file:
             dict_to_json = {'cash': self.__cash, 'counter': self.__counter, 'history': self.__history}
             json.dump(dict_to_json, file, indent=2, ensure_ascii=False)
             return 'Файл save.json сохранен в данной директории!'
 
     def load_json(self):
+        """Метод загрузки состояния из JSON """
         with open(self.__path_save, 'r', encoding='utf-8') as file:
             load_dict = json.load(file)
             self.__cash = load_dict['cash']
