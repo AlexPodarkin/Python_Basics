@@ -1,7 +1,7 @@
 import json
 
 
-class MadelCashMachine:
+class ModelCashMachine:
     """Клас банкомата"""
     __FREE_LIMIT = 5_000_000
     __COMMISSION_BANK = 0.9

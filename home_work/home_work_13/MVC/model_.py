@@ -1,7 +1,4 @@
 import json
-import pickle
-
-import view_
 
 
 class MadelCashMachine:
@@ -14,6 +11,7 @@ class MadelCashMachine:
     __MAX_COMMISSION = 600
     __BONUS_OPERATION = 3
     __BONUS_PERCENT = 1.03
+    __path_save = 'C:\\Users\\Bekinsale\\Desktop\\project_py_charm\\home_work\home_work_15\\save.json'
 
     def __init__(self, cash=0, counter=0, history=None):
         """
@@ -34,10 +32,9 @@ class MadelCashMachine:
         self.__counter += 1
         if self.__cash > self.__FREE_LIMIT:
             self.__cash *= self.__COMMISSION_BANK
-            view_.print_(f'комиссия банка 10% баланс: {round(self.__cash, 2)} у.е')
             self.__history.append(f'комиссия банка 10% баланс: {round(self.__cash, 2)} у.е')
-
-        view_.print_menu(self.__cash)
+            return f'лимит превышен(комиссия банка 10%, баланс: {round(self.__cash, 2)} у.е)'
+        return f'лимит лицевого счета не превышен (комиссия банка не взимается, баланс: {round(self.__cash, 2)} у.е)'
 
     def __division_check_50(self, value):
         """Проверка деления на 50 (что-бы не нарушать принцип DRY)
@@ -45,8 +42,6 @@ class MadelCashMachine:
         if value % self.__DIVISION_CHECK == 0:
             return True
         else:
-            view_.print_('! ошибка: неверная сумма')
-            self.__history.append(f"ошибка: неверная сумма, баланс: {round(self.__cash, 2)} у.е")
             return False
 
     def put_money(self, add):
@@ -54,6 +49,9 @@ class MadelCashMachine:
         if self.__division_check_50(add):
             self.__cash += add
             self.__history.append(f"пополнение счета на {str(add)} у.е, баланс: {round(self.__cash, 2)} у.е")
+            return 'Операция по зачислению прошла успешно !'
+        self.__history.append(f'Ошибка внесения: неверная сумма {add}, баланс: {round(self.__cash, 2)} у.е')
+        return f'Ошибка внесения: неверная сумма {add}!'
 
     def give_money(self, take):
         """Метод для снятия денег"""
@@ -64,37 +62,42 @@ class MadelCashMachine:
             if percent > self.__MAX_COMMISSION:
                 percent = self.__MAX_COMMISSION
             if self.__cash < (take + percent):
-                view_.print_(f'! ошибка снятия денег: недостаточно средств баланс: {round(self.__cash, 2)} у.е')
-                self.__history.append(f"ошибка снятия денег: недостаточно средств, баланс: {round(self.__cash, 2)} у.е")
+                self.__history.append(f"ошибка снятия денег: запрос {take} у.е, баланс: {round(self.__cash, 2)} у.е")
+                return f'Ошибка снятия денег: запрос {take} у.е, недостаточно средств!'
             else:
                 self.__cash -= (take + percent)
                 self.__history.append(f"снятие {str(take)} у.е "
                                       f"(комиссия банка {percent} у.е), баланс: {round(self.__cash, 2)} у.е")
+                return f'запрос {take} у.е, успешно (комиссия за трансакцию: {percent} у.е)!'
+        self.__history.append(f'Ошибка снятия денег: неверная сумма {take}, баланс: {round(self.__cash, 2)} у.е')
+        return f'Ошибка снятия денег: неверная сумма {take}!'
 
     def print_history(self):
         """Метод для печати истории операций"""
-        view_.print_('->история операций:\n' + '\n'.join(self.__history))
-        input("для продолжения нажмите ENTER...")
+        return '->история операций:\n' + '\n'.join(self.__history)
 
     def give_percent(self):
         """Метод начисления процентов за каждую третью операцию в банкомате"""
         if self.__counter % self.__BONUS_OPERATION == 0:
             self.__cash *= self.__BONUS_PERCENT
-            view_.print_(f'-> {self.__counter} операция ! Банк начислил проценты по вкладу !')
             self.__history.append(f"-> {self.__counter} операция !"
                                   f" Банк начислил проценты по вкладу ! баланс: {round(self.__cash, 2)} у.е")
+            return f'Начисления за {self.__counter} операцию ! Банк начислил проценты по вкладу !'
+        return f'Операция № {self.__counter}, за любую 3-тью операцию банк начислит процент !'
 
     def save_json(self):
-        with open('save.json', 'w', encoding='utf-8') as file:
+        """Метод сохранения состояния в JSON"""
+        with open(self.__path_save, 'w', encoding='utf-8') as file:
             dict_to_json = {'cash': self.__cash, 'counter': self.__counter, 'history': self.__history}
             json.dump(dict_to_json, file, indent=2, ensure_ascii=False)
-            view_.print_('Файл save.json сохранен в данной директории!')
+            return 'Файл save.json сохранен в данной директории!'
 
     def load_json(self):
-        with open('save.json', 'r', encoding='utf-8') as file:
+        """Метод загрузки состояния из JSON """
+        with open(self.__path_save, 'r', encoding='utf-8') as file:
             load_dict = json.load(file)
             self.__cash = load_dict['cash']
             self.__counter = load_dict['counter']
             self.__history = load_dict['history']
-            view_.print_('Файл save.json загружен из данной директории... \n'
-                         'Статус: баланс, история операций и счетчик обновлены !')
+            return 'Файл save.json загружен из данной директории... ' \
+                   '\nСтатус: баланс, история операций и счетчик обновлены !'

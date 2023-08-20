@@ -1,6 +1,6 @@
 import model_
 
-__model = model_.MadelCashMachine()
+__model = model_.ModelCashMachine()
 
 
 def controller_launch():
