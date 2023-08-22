@@ -1,7 +1,8 @@
 import model_
 import view_
 
-if __name__ == '__main__':
+
+def start_project():
     __model = model_.ModelCashMachine()
     while True:
         view_.print_menu()
